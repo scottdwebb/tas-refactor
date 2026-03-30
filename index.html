@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Topaz Admin Solutions — Precise detail-oriented paralegal and administrative solutions for legal professionals." />
+    <meta name="author" content="Scott D. Webb, WorldWideWebb.com" />
+    <title>Topaz Admin Solutions</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Topaz Admin Solutions" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+
+    <!-- Skip link -->
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap"
+      rel="stylesheet" />
+
+    <!-- Topaz Custom CSS -->
+    <link href="css/topaz-main.css" rel="stylesheet" />
+
+    <!-- Font Awesome 6 Free (CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  </head>
+
+  <body>
+    <!-- ============================================================
+       HEADER / NAV
+  ============================================================ -->
+    <header class="site-header" id="site-header" role="banner">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <!-- <div class="bulb-cluster" aria-hidden="true"> -->
+        <a href="#hero" class="nav-logo" aria-label="Topaz Admin Solutions home">
+          <!-- Lightbulb SVG -->
+          <svg
+            class="bulb-icon"
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true">
+            <path
+              d="M9 21h6M12 3a6 6 0 0 1 4.24 10.24C15.31 14.17 15 15.08 15 16H9c0-.92-.31-1.83-1.24-2.76A6 6 0 0 1 12 3z" />
+            <line x1="9" y1="18" x2="15" y2="18" />
+          </svg>
+          <span class="nav-logo-text">Topaz</span>
+          <!-- separator + tagline -->
+          <span class="nav-logo-divider" aria-hidden="true"></span>
+          <span class="nav-logo-tagline">Thinking. <em>Solutions.</em></span>
+        </a>
+        <!-- </div> -->
+        <ul class="nav-links" role="list">
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" aria-label="Switch to dark mode" data-theme-toggle>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </button>
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-expanded="false"
+            aria-controls="nav-drawer"
+            aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Mobile drawer -->
+    <nav class="nav-drawer" id="nav-drawer" aria-label="Mobile navigation">
+      <a href="#services" class="drawer-link">Services</a>
+      <a href="#about" class="drawer-link">About</a>
+      <a href="#contact" class="drawer-link">Contact</a>
+      <a href="#contact" class="btn btn--primary" style="width: fit-content; margin-top: auto"
+        >Get in touch</a
+      >
+    </nav>
+
+    <!-- ============================================================
+       MAIN
+  ============================================================ -->
+    <main id="main">
+      <!-- HERO -->
+      <section id="hero" aria-label="Hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="hero-eyebrow">Topaz Administrative Solutions</p>
+          <h1 class="hero-title">Thinking.<br /><em>Solutions.</em></h1>
+          <p class="hero-desc">
+            Precise, detail-oriented paralegal and administrative solutions — so legal professionals
+            can focus on what matters most.
+          </p>
+          <div class="hero-cta">
+            <a href="#services" class="btn btn--primary">Explore Our Services</a>
+          </div>
+          <button
+            class="hero-scroll"
+            aria-label="Scroll down to services"
+            onclick="document.getElementById('services').scrollIntoView({ behavior: 'smooth' })">
+            <div class="scroll-mouse" aria-hidden="true">
+              <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ============================================================
+     PUZZLE SECTION — Topaz Admin Solutions
+     ============================================================
+     Fonts  : Cormorant Garamond (display), General Sans (body)
+     Palette: forest green / warm ivory / gold
+     Icons  : Font Awesome 6 Free (labels) + inline SVG (modal)
+
+     Layer order inside .puzzle-wrapper:
+       z 1  → svg.puzzle-grid        (clipped images, original paths)
+       z 2  → .puzzle-overlay        (full-puzzle dark veil)
+       z 3  → .puzzle-label-layer    (FA icon + name + peek)
+       z 10 → .piece-modal-layer     (modal — JS class "visible")
+     ============================================================ -->
+
+      <!-- ============================================================
+     SERVICES SECTION
+     ============================================================ -->
+      <section id="services" aria-labelledby="services-title">
+        <div class="container">
+          <!-- Section header -->
+          <div class="section-header section-header--center reveal">
+            <span class="eyebrow">What We Do</span>
+            <h2 class="section-title" id="services-title">Our Services</h2>
+            <p class="section-desc">Select any service to explore how Topaz delivers results.</p>
+            <hr class="shimmer-rule" aria-hidden="true" />
+            <div class="bulb-cluster" aria-hidden="true">
+              <svg
+                class="bulb-icon"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                aria-hidden="true">
+                <path
+                  d="M9 21h6M12 3a6 6 0 0 1 4.24 10.24C15.31 14.17 15 15.08 15 16H9c0-.92-.31-1.83-1.24-2.76A6 6 0 0 1 12 3z" />
+                <line x1="9" y1="18" x2="15" y2="18" />
+              </svg>
+              <hr class="bulb-rule" aria-hidden="true" />
+              <span class="services-tagline">Thinking. <em>Solutions.</em></span>
+            </div>
+          </div>
+          <!-- /section-header -->
+
+          <!-- ============================================================
+         PUZZLE WRAPPER — single positioning context
+         ============================================================ -->
+          <div class="puzzle-wrapper reveal" id="puzzleWrapper" role="list" aria-label="Services">
+            <!-- ========================================================
+           LAYER 1 — SVG PUZZLE GRID
+           Original clip-path paths from topaz-spa.html preserved.
+           Each <image> fills the clip-path at full 300×300.
+           ======================================================== -->
+            <svg
+              class="puzzle-grid"
+              id="puzzleGrid"
+              viewBox="0 0 300 300"
+              xmlns="http://www.w3.org/2000/svg"
+              role="list"
+              aria-label="Services puzzle"
+              focusable="false">
+              <defs>
+                <!-- TL clip -->
+                <clipPath id="clip-tl" clipPathUnits="userSpaceOnUse">
+                  <path
+                    d="M0,92.067v55.881c0,.029.023.052.052.052h26.045c4.022,0,7.296-3.266,7.296-7.283,0-1.918-.797-3.768-2.229-5.197-.199-.205-.417-.397-.647-.584-.479-.391-.94-.801-1.382-1.223-5.099-4.88-7.458-11.852-6.344-18.992.691-4.458,2.764-8.45,5.771-11.554.199-.205.405-.41.61-.608,1.45-1.397,3.1-2.583,4.906-3.527.255-.136.517-.267.778-.391.791-.373,1.6-.702,2.44-.981,1.395-.466,2.851-.788,4.358-.962.834-.093,1.675-.143,2.503-.143.33,0,.666.006.996.025.996.043,1.98.155,2.951.335,1.949.354,3.835.969,5.609,1.825,1.774.857,3.43,1.962,4.924,3.29.293.261.573.521.841.795,4.096,4.054,6.419,9.58,6.419,15.354,0,6.575-2.945,12.709-8.081,16.825-2.215,1.775-3.247,4.576-2.597,7.376.724,3.122,4.177,5.619,7.394,5.619h85.746c.029,0,.052-.023.052-.052v-30.988c0-5.73,4.669-10.387,10.409-10.387,3.144,0,6.138,1.465,8.218,4.017,4.202,5.166,10.702,7.63,17.376,6.594,8.025-1.248,14.524-8.015,15.458-16.099.616-5.37-1.009-10.523-4.582-14.516-3.524-3.943-8.579-6.202-13.871-6.202-5.647,0-10.907,2.514-14.443,6.898-2.326,2.892-5.918,4.356-9.622,3.84-5.211-.726-8.943-5.424-8.943-10.665V.052c0-.029-.023-.052-.052-.052H9.998C4.476,0,0,4.458,0,9.957v82.11Z" />
+                </clipPath>
+
+                <!-- TR clip -->
+                <clipPath id="clip-tr" clipPathUnits="userSpaceOnUse">
+                  <path
+                    d="M274.353,148.41h25.647s0-56.088,0-56.088V9.985c0-5.514-4.464-9.985-9.97-9.985h-138.03v80.811c0,3.425,2.256,6.547,5.584,7.335,2.811.666,5.628-.365,7.41-2.589,4.11-5.136,10.244-8.081,16.819-8.081,6.159,0,12.045,2.646,16.149,7.259,4.098,4.607,6.041,10.802,5.333,16.984-1.099,9.625-8.512,17.382-18.017,18.864-7.761,1.202-15.323-1.681-20.215-7.726-1.478-1.83-3.589-2.876-5.786-2.876-4.011,0-7.276,3.275-7.276,7.303v31.126h85.874c5.724,0,10.381,4.669,10.381,10.416,0,2.752-1.118,5.385-3.11,7.396-.286.286-.59.56-.906.822-.546.448-1.068.915-1.552,1.413-4.091,4.171-5.96,9.992-5.035,15.957.658,4.265,2.881,8.1,6.029,10.895.739.654,1.534,1.258,2.366,1.793.416.268.844.517,1.285.753.658.349,1.335.66,2.03.934.236.093.472.175.708.255.472.156.95.299,1.44.423.242.062.49.119.739.168.491.099.993.18,1.496.236,5.37.616,10.523-1.009,14.522-4.582,3.936-3.524,6.196-8.579,6.196-13.864,0-5.647-2.515-10.914-6.898-14.444-.155-.125-.31-.255-.459-.392-.149-.131-.292-.268-.428-.411-.075-.068-.137-.137-.199-.206-.205-.218-.404-.442-.584-.672-.174-.218-.335-.436-.484-.666-.18-.255-.341-.517-.49-.785-1.17-2.105-1.589-4.605-1.092-7.101.981-4.924,5.512-8.339,10.526-8.339Z" />
+                </clipPath>
+
+                <!-- BL clip -->
+                <clipPath id="clip-bl" clipPathUnits="userSpaceOnUse">
+                  <path
+                    d="M25.997,151.592H0v138.424c0,5.514,4.464,9.985,9.97,9.985h138.03v-80.801c0-3.425-2.253-6.549-5.58-7.342-2.814-.671-5.637.36-7.414,2.587-4.116,5.136-10.25,8.081-16.825,8.081-6.159,0-12.044-1.647-16.148-6.261-4.097-4.607-6.041-10.802-5.333-16.984,1.099-9.625,8.512-18.381,18.017-19.862,7.767-1.208,15.322,1.675,20.214,7.726,1.484,1.824,3.588,2.876,5.786,2.876,4.011,0,7.282-3.275,7.282-7.303v-31.125H62.129c-2.328,0-4.482-.772-6.215-2.073-.397-.299-.782-.629-1.13-.984-1.881-1.886-3.042-4.489-3.042-7.365,0-3.162,1.434-6.132,3.942-8.149,4.383-3.53,6.897-8.797,6.897-14.443,0-5.292-2.26-10.341-6.196-13.865-3.998-3.574-9.151-5.205-14.521-4.582-8.083.928-14.85,7.427-16.098,15.452-1.031,6.68,1.434,13.173,6.593,17.376,2.552,2.08,4.017,5.074,4.017,8.218,0,2.87-1.167,5.472-3.042,7.359-.348.355-.726.685-1.13.984-1.732,1.301-3.88,2.073-6.208,2.073Z" />
+                </clipPath>
+
+                <!-- BR clip -->
+                <clipPath id="clip-br" clipPathUnits="userSpaceOnUse">
+                  <path
+                    d="M142.691,208.902c5.186.745,8.904,5.406,8.904,10.625v80.474s56.086,0,56.086,0h82.322c5.522,0,9.998-4.458,9.998-9.957v-138.043h-26.091c-4.028,0-7.303,3.266-7.303,7.289,0,2.204,1.015,4.284,2.789,5.706,5.63,4.512,8.627,11.441,7.998,18.735-.526,6.109-3.698,11.777-8.643,15.43-.026.019-.052.038-.077.057-.43.317-.872.615-1.32.894-.386.248-.784.478-1.183.695-.872.472-1.768.882-2.689,1.229-1.226.466-2.503.813-3.798,1.049-.971.18-1.955.292-2.951.335-1.158.056-2.328.019-3.499-.118-9.625-1.105-17.376-8.512-18.857-18.023-1.214-7.761,1.675-15.316,7.72-20.215,1.83-1.478,2.876-3.589,2.876-5.78,0-4.017-3.275-7.283-7.296-7.283h-86.082v30.679c0,4.359-2.553,8.427-6.626,10.022-4.396,1.722-9.098.279-12.008-3.292-4.202-5.165-10.696-7.63-17.376-6.594-8.025,1.242-14.524,9.011-15.458,17.095-.703,6.123,1.521,11.978,6.21,16.136,2.297,2.037,5.1,2.484,8.105,3.137,7.144,1.553,14.191-1.007,18.581-6.456,2.335-2.897,5.947-4.362,9.667-3.828Z" />
+                </clipPath>
+              </defs>
+
+              <!-- TL: Paralegal Support -->
+              <g
+                class="puzzle-piece"
+                id="puzzle-tl"
+                data-service="0"
+                role="listitem"
+                tabindex="0"
+                aria-label="Paralegal Support — click to expand">
+                <image
+                  href="images/puzzle-piece--1__bevel.webp"
+                  x="0"
+                  y="0"
+                  width="200"
+                  height="148"
+                  preserveAspectRatio="xMidYMid slice"
+                  clip-path="url(#clip-tl)" />
+              </g>
+
+              <!-- TR: Document Preparation -->
+              <g
+                class="puzzle-piece"
+                id="puzzle-tr"
+                data-service="1"
+                role="listitem"
+                tabindex="0"
+                aria-label="Document Preparation — click to expand">
+                <image
+                  href="images/puzzle-piece--2__bevel.webp"
+                  x="152"
+                  y="0"
+                  width="148"
+                  height="200"
+                  preserveAspectRatio="xMidYMid slice"
+                  clip-path="url(#clip-tr)" />
+              </g>
+
+              <!-- BL: Legal Research -->
+              <g
+                class="puzzle-piece"
+                id="puzzle-bl"
+                data-service="2"
+                role="listitem"
+                tabindex="0"
+                aria-label="Legal Research — click to expand">
+                <image
+                  href="images/puzzle-piece--3__bevel.webp"
+                  x="0"
+                  y="100"
+                  width="148"
+                  height="200"
+                  preserveAspectRatio="xMidYMid slice"
+                  clip-path="url(#clip-bl)" />
+              </g>
+
+              <!-- BR: Admin Operations -->
+              <g
+                class="puzzle-piece"
+                id="puzzle-br"
+                data-service="3"
+                role="listitem"
+                tabindex="0"
+                aria-label="Trial Assistance — click to expand">
+                <image
+                  href="images/puzzle-piece--4__bevel.webp"
+                  x="100"
+                  y="152"
+                  width="200"
+                  height="148"
+                  preserveAspectRatio="xMidYMid slice"
+                  clip-path="url(#clip-br)" />
+              </g>
+            </svg>
+            <!-- /puzzle-grid -->
+
+            <!-- ========================================================
+           LAYER 2 — FULL PUZZLE OVERLAY (dark veil)
+           ======================================================== -->
+            <div class="puzzle-overlay" aria-hidden="true"></div>
+
+            <!-- ========================================================
+           LAYER 3 — LABEL LAYER
+           pointer-events: none — clicks pass through to SVG pieces.
+           Structure per item: FA icon → name → peek text
+           ======================================================== -->
+            <div class="puzzle-label-layer" aria-hidden="true">
+              <!-- 0: TL — Paralegal Support — Balance Scale -->
+              <div class="puzzle-label-item" data-service="0">
+                <i class="piece-icon fa-solid fa-scale-balanced" aria-hidden="true"></i>
+                <span class="piece-label-name">Paralegal Support</span>
+                <span class="piece-peek">View Details</span>
+              </div>
+
+              <!-- 1: TR — Document Preparation — File Contract -->
+              <div class="puzzle-label-item" data-service="1">
+                <i class="piece-icon fa-solid fa-file-contract" aria-hidden="true"></i>
+                <span class="piece-label-name">Document Preparation</span>
+                <span class="piece-peek">View Details</span>
+              </div>
+
+              <!-- 2: BL — Legal Research — Magnifying Glass -->
+              <div class="puzzle-label-item" data-service="2">
+                <i class="piece-icon fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <span class="piece-label-name">Legal Research</span>
+                <span class="piece-peek">View Details</span>
+              </div>
+
+              <!-- 3: BR — Trial Assistance — Gavel -->
+              <div class="puzzle-label-item" data-service="3">
+                <i class="piece-icon fa-solid fa-gavel" aria-hidden="true"></i>
+                <span class="piece-label-name">Trial Assistance</span>
+                <span class="piece-peek">View Details</span>
+              </div>
+            </div>
+            <!-- /puzzle-label-layer -->
+
+            <!-- ========================================================
+           LAYER 4 — MODAL LAYER
+           Matches topaz-spa.html structure exactly.
+           Activation: JS adds class "visible"  (not "is-open")
+           Background: set via JS  modalBg.style.backgroundImage
+           ======================================================== -->
+            <div
+              class="piece-modal-layer"
+              id="pieceModalLayer"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="modalTitle"
+              aria-hidden="true">
+              <!-- Piece image background (src set by JS) -->
+              <div class="piece-modal-bg" id="pieceModalBg" aria-hidden="true"></div>
+
+              <!-- Forest-green directional overlay -->
+              <div class="piece-modal-overlay" aria-hidden="true"></div>
+
+              <!-- Close button -->
+              <button
+                class="piece-modal-close"
+                id="pieceModalClose"
+                aria-label="Close service detail">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+
+              <!-- Modal content -->
+              <div class="piece-modal-content">
+                <!-- Icon: inline SVG filled by JS from SERVICES[idx].iconPath -->
+                <i
+                  class="piece-modal-icon"
+                  id="modalIcon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"></i>
+
+                <h3 class="piece-modal-title" id="modalTitle"></h3>
+                <p class="piece-modal-desc" id="modalDesc"></p>
+                <ul class="piece-modal-list" id="modalList" role="list"></ul>
+
+                <a
+                  href="#contact"
+                  class="btn btn--outline"
+                  style="color: #fff; border-color: rgba(255, 255, 255, 0.5)"
+                  id="modalCta">
+                  Inquire about this service
+                </a>
+              </div>
+              <!-- /piece-modal-content -->
+            </div>
+            <!-- /piece-modal-layer -->
+          </div>
+          <!-- /puzzle-wrapper -->
+          <hr class="shimmer-rule" aria-hidden="true" />
+        </div>
+        <!-- /container -->
+      </section>
+      <!-- /services -->
+
+      <!-- ============================================================
+         ABOUT
+    ============================================================ -->
+      <section id="about" aria-labelledby="about-title">
+        <div class="container">
+          <div class="about-grid">
+            <!-- Text column -->
+            <div class="about-body">
+              <div class="reveal">
+                <span class="eyebrow">Our Story</span>
+                <h2 class="section-title" id="about-title">Precision behind every case.</h2>
+                <hr class="shimmer-rule" aria-hidden="true" />
+                <p class="section-desc">
+                  Topaz Admin Solutions was founded on a simple belief: legal professionals do their
+                  best work when freed from administrative friction. We bring disciplined precision,
+                  deep familiarity with legal workflows, and a commitment to confidentiality to
+                  every engagement.
+                </p>
+              </div>
+
+              <div class="about-pull-quote reveal reveal--delay-1">
+                <p>
+                  "We don't just manage paperwork — we protect the integrity of the work behind it."
+                </p>
+              </div>
+
+              <p class="section-desc reveal reveal--delay-2">
+                Every document we prepare, every research memo we compile, and every calendar we
+                manage reflects the same standard your clients expect of you. Remote-ready and
+                adaptable to your practice's pace.
+              </p>
+
+              <div class="about-stats reveal reveal--delay-2">
+                <div class="stat">
+                  <div class="stat-num">10+</div>
+                  <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-num">4</div>
+                  <div class="stat-label">Core Services</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-num">100%</div>
+                  <div class="stat-label">Remote Ready</div>
+                </div>
+              </div>
+
+              <div class="reveal reveal--delay-3">
+                <a href="#contact" class="btn btn--primary">Work with us</a>
+              </div>
+            </div>
+
+            <!-- Photo stack column -->
+            <div class="about-photos reveal reveal--delay-1" aria-hidden="true">
+              <img
+                class="about-photo-primary"
+                src="./images/about-photo-01.jpg"
+                alt="Topaz team at work"
+                loading="lazy" />
+              <img
+                class="about-photo-accent"
+                src="./images/about-photo-02.jpg"
+                alt="Legal documents on desk"
+                loading="lazy" />
+              <span class="about-tag">Est. 2014</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="eyebrow">Get in Touch</span>
+            <h2 class="section-title" id="contact-title">Let's work together.</h2>
+            <p class="section-desc">
+              Tell us about your practice and what you need — we'll be in touch within one business
+              day.
+            </p>
+            <hr class="shimmer-rule" aria-hidden="true" />
+            <div class="bulb-cluster" aria-hidden="true">
+              <svg
+                class="bulb-icon"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                aria-hidden="true">
+                <path
+                  d="M9 21h6M12 3a6 6 0 0 1 4.24 10.24C15.31 14.17 15 15.08 15 16H9c0-.92-.31-1.83-1.24-2.76A6 6 0 0 1 12 3z" />
+                <line x1="9" y1="18" x2="15" y2="18" />
+              </svg>
+              <hr class="bulb-rule" aria-hidden="true" />
+            </div>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Info column -->
+            <div class="contact-info reveal">
+              <div class="contact-item">
+                <div class="contact-item-icon" aria-hidden="true">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5">
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <div class="contact-item-body">
+                  <h4>Email</h4>
+                  <a href="mailto:info@topazadminsolutions.com">info@topazadminsolutions.com</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon" aria-hidden="true">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.32 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div class="contact-item-body">
+                  <h4>Phone</h4>
+                  <a href="tel:+1-800-000-0000">(800) 000-0000</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-item-icon" aria-hidden="true">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <div class="contact-item-body">
+                  <h4>Hours</h4>
+                  <p>Monday – Friday, 9am – 6pm EST</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form -->
+            <form
+              class="contact-form reveal reveal--delay-1"
+              id="contactForm"
+              novalidate
+              aria-label="Contact form">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="fname">First Name</label>
+                  <input
+                    type="text"
+                    id="fname"
+                    name="fname"
+                    placeholder="Jane"
+                    autocomplete="given-name"
+                    required />
+                </div>
+                <div class="form-field">
+                  <label for="lname">Last Name</label>
+                  <input
+                    type="text"
+                    id="lname"
+                    name="lname"
+                    placeholder="Smith"
+                    autocomplete="family-name"
+                    required />
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="jane@lawfirm.com"
+                  autocomplete="email"
+                  required />
+              </div>
+              <div class="form-field">
+                <label for="service">Service of Interest</label>
+                <select id="service" name="service">
+                  <option value="">Select a service…</option>
+                  <option value="paralegal">Paralegal Support</option>
+                  <option value="documents">Document Preparation</option>
+                  <option value="research">Legal Research</option>
+                  <option value="admin">Admin Operations</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us about your practice and what you need…"
+                  required></textarea>
+              </div>
+              <div class="form-submit">
+                <button type="submit" class="btn btn--primary">
+                  Send Message
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </button>
+                <span class="form-status" id="formStatus" role="status" aria-live="polite"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+    <footer role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo" aria-label="Topaz Admin Solutions">
+              <svg
+                class="bulb-icon"
+                width="50"
+                height="50"
+                viewBox="0 0 25 25"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                aria-hidden="true">
+                <path
+                  d="M9 21h6M12 3a6 6 0 0 1 4.24 10.24C15.31 14.17 15 15.08 15 16H9c0-.92-.31-1.83-1.24-2.76A6 6 0 0 1 12 3z" />
+                <line x1="9" y1="18" x2="15" y2="18" />
+              </svg>
+              <span class="footer-logo-text">Topaz<br />Administrative Solutions</span>
+            </div>
+            <p class="footer-tagline">Thinking. Solutions.</p>
+            <p class="footer-about">
+              Precise, detail-oriented paralegal and administrative support for legal professionals.
+              Remote-ready. Confidential. Reliable.
+            </p>
+          </div>
+
+          <div class="footer-col">
+            <h5>Services</h5>
+            <ul class="footer-links" role="list">
+              <li><a href="#services">Paralegal Support</a></li>
+              <li><a href="#services">Document Preparation</a></li>
+              <li><a href="#services">Legal Research</a></li>
+              <li><a href="#services">Trial Assistance</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul class="footer-links" role="list">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li>
+                <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="footerYear"></span> Topaz Admininistrative Solutions. All rights
+            reserved.
+          </p>
+          <p class="www">
+            Designed with Intention. Built to Serve. By
+            <a href="https://www.worldwidewebb.com" target="_blank" rel="noopener noreferrer"
+              >WorldWideWebb</a
+            >.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Topaz Main JavaSrcipt -->
+    <script src="js/topaz-main.js" defer></script>
+    <script src="js/puzzle.js" defer></script>
+  </body>
+</html>

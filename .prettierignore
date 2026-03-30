@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Builds / bundles
+dist/
+build/
+coverage/
+.next/
+out/
+
+# Environment & config
+.env
+.env.*
+*.log
+
+# Assets you do not want formatted
+public/
+*.svg
+docs/
+
+# Misc tooling output
+.vscode/
+.idea/
