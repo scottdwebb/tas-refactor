@@ -6,7 +6,6 @@
 //    - Mobile hamburger drawer
 //    - Scroll-reveal animations
 //    - Contact form submission
-//    - Lucide icon initialisation
 //
 //  Puzzle behaviour lives in puzzle.js — load it separately.
 //  Load order in HTML:
@@ -338,14 +337,5 @@
         }
       }, 1400);
     });
-  }
-
-  // --------------------------------------------------------------
-  //  LUCIDE ICONS
-  //  Initialised last so the full DOM is ready.
-  // --------------------------------------------------------------
-
-  if (window.lucide) {
-    lucide.createIcons();
   }
 })();
