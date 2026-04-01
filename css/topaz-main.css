@@ -1125,6 +1125,27 @@ section {
   }
 }
 
+.bulb-icon2 {
+  animation: bulbPulseGold 6s ease-in-out infinite;
+}
+
+.bulb-gold {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes bulbPulseGold {
+  0%,
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 6px 12px var(--color-gold));
+  }
+  50% {
+    opacity: 0.65;
+    filter: drop-shadow(0 2px 5px var(--color-gold));
+  }
+}
+
 .bulb-rule {
   border: none;
   height: 1px;
