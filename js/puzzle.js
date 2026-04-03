@@ -10,7 +10,7 @@
  *              - Activation class : "visible"  (not "is-open")
  *              - modalBg image    : set via style.backgroundImage
  *              - JS closes modal  : removes "visible", adds
- *                                   aria-hidden="true"
+ *                                   aria-hidden="true" + inert
  * @fonts       Cormorant Garamond / General Sans (from page <head>)
  * @palette     --color-primary (teal green) / --color-gold
  * ============================================================
@@ -96,16 +96,16 @@ const SERVICES = [
 // DOM REFERENCES
 // ============================================================
 const puzzleWrapper = document.getElementById("puzzleWrapper");
-const puzzleGrid = document.getElementById("puzzleGrid");
-const modalLayer = document.getElementById("pieceModalLayer");
-const modalClose = document.getElementById("pieceModalClose");
-const modalBg = document.getElementById("pieceModalBg");
-const modalIcon = document.getElementById("modalIcon");
-const modalTitle = document.getElementById("modalTitle");
-const modalDesc = document.getElementById("modalDesc");
-const modalList = document.getElementById("modalList");
+const puzzleGrid    = document.getElementById("puzzleGrid");
+const modalLayer    = document.getElementById("pieceModalLayer");
+const modalClose    = document.getElementById("pieceModalClose");
+const modalBg       = document.getElementById("pieceModalBg");
+const modalIcon     = document.getElementById("modalIcon");
+const modalTitle    = document.getElementById("modalTitle");
+const modalDesc     = document.getElementById("modalDesc");
+const modalList     = document.getElementById("modalList");
 
-const pieces = puzzleGrid ? [...puzzleGrid.querySelectorAll(".puzzle-piece")] : [];
+const pieces     = puzzleGrid    ? [...puzzleGrid.querySelectorAll(".puzzle-piece")]     : [];
 const labelItems = puzzleWrapper ? [...puzzleWrapper.querySelectorAll(".puzzle-label-item")] : [];
 
 /** Index of the currently active piece (for focus restore on close) */
@@ -123,7 +123,6 @@ const setHover = (idx) => {
   const i = String(idx);
   pieces.forEach((p) => p.classList.toggle("is-hovered", p.dataset.service === i));
   labelItems.forEach((l) => l.classList.toggle("is-hovered", l.dataset.service === i));
-
   puzzleWrapper?.classList.add("has-hover");
 };
 
@@ -131,7 +130,6 @@ const setHover = (idx) => {
 const clearHover = () => {
   pieces.forEach((p) => p.classList.remove("is-hovered"));
   labelItems.forEach((l) => l.classList.remove("is-hovered"));
-
   puzzleWrapper?.classList.remove("has-hover");
 };
 
@@ -141,10 +139,13 @@ const clearHover = () => {
 
 /**
  * Opens the shared modal layer for the given service index.
- * Matches topaz-spa.html approach:
- *   - modalBg background image set via style property
- *   - activation: puzzleWrapper gets .has-active
- *                 modalLayer gets .visible + aria-hidden removed
+ *
+ * Accessibility:
+ *   - Removes `inert` so descendants become focusable/interactive.
+ *   - Removes `aria-hidden` so the dialog is announced by screen readers.
+ *   - Moves focus to the close button on the next frame (after CSS
+ *     transition begins) so screen readers announce the dialog.
+ *
  * @param {number} idx
  */
 const openModal = (idx) => {
@@ -153,32 +154,35 @@ const openModal = (idx) => {
 
   activePieceIdx = idx;
 
-  // Populate background image
+  // --- Populate content ---
+
   if (modalBg) {
     modalBg.style.backgroundImage = `url(${svc.bg})`;
   }
 
-  // Populate icon (innerHTML — internal data only, safe)
   if (modalIcon) {
     modalIcon.className = "piece-modal-icon";
     svc.faClass.split(" ").forEach((cls) => modalIcon.classList.add(cls));
   }
 
-  // Populate text fields
   if (modalTitle) modalTitle.textContent = svc.name;
-  if (modalDesc) modalDesc.textContent = svc.desc;
+  if (modalDesc)  modalDesc.textContent  = svc.desc;
 
-  // Populate list
   if (modalList) {
     modalList.innerHTML = svc.list.map((item) => `<li>${item}</li>`).join("");
   }
 
-  // Activate
+  // --- Activate visual state ---
   puzzleWrapper?.classList.add("has-active");
   modalLayer.classList.add("visible");
-  modalLayer.removeAttribute("aria-hidden");
 
-  // Move focus to close button (accessibility)
+  // --- Accessibility: make modal interactive and visible to AT ---
+  // Order matters: remove inert first so the element can receive focus,
+  // then expose it to the accessibility tree.
+  modalLayer.removeAttribute("inert");
+  modalLayer.setAttribute("aria-hidden", "false");
+
+  // Move focus to close button after transition frame
   requestAnimationFrame(() => modalClose?.focus());
 };
 
@@ -186,13 +190,28 @@ const openModal = (idx) => {
 // MODAL — close
 // ============================================================
 
-/** Closes the modal and restores focus to the triggering piece. */
+/**
+ * Closes the modal and restores focus to the triggering puzzle piece.
+ *
+ * Accessibility:
+ *   - Sets `aria-hidden="true"` to remove the dialog from the AT tree.
+ *   - Sets `inert` to remove ALL descendants from tab order and pointer
+ *     events, preventing the aria-hidden-focus violation that occurs
+ *     when focusable children exist inside a hidden container.
+ *   - Restores focus to the piece element that opened the modal.
+ */
 const closeModal = () => {
   if (!modalLayer) return;
 
+  // --- Deactivate visual state ---
   modalLayer.classList.remove("visible");
-  modalLayer.setAttribute("aria-hidden", "true");
   puzzleWrapper?.classList.remove("has-active");
+
+  // --- Accessibility: lock modal away from AT and keyboard ---
+  // Order matters: hide from AT first, then make inert so no focus
+  // events fire on the now-hidden descendants during transition.
+  modalLayer.setAttribute("aria-hidden", "true");
+  modalLayer.setAttribute("inert", "");
 
   // Restore focus to the piece that opened the modal
   if (activePieceIdx !== null) {
@@ -204,7 +223,7 @@ const closeModal = () => {
 // ============================================================
 // BIND PIECE EVENTS
 // ============================================================
-pieces.forEach((piece, i) => {
+pieces.forEach((piece) => {
   const idx = piece.dataset.service;
 
   // Mouse hover → image filter + label sync
@@ -212,8 +231,8 @@ pieces.forEach((piece, i) => {
   piece.addEventListener("mouseleave", () => clearHover());
 
   // Keyboard focus → same as hover
-  piece.addEventListener("focus", () => setHover(idx));
-  piece.addEventListener("blur", () => clearHover());
+  piece.addEventListener("focus",  () => setHover(idx));
+  piece.addEventListener("blur",   () => clearHover());
 
   // Click → open modal
   piece.addEventListener("click", () => openModal(Number(idx)));
@@ -234,7 +253,7 @@ pieces.forEach((piece, i) => {
 // × button
 modalClose?.addEventListener("click", closeModal);
 
-// Escape key
+// Escape key — only fires when modal is open (inert blocks it when closed)
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && modalLayer?.classList.contains("visible")) {
     closeModal();
@@ -249,24 +268,29 @@ modalLayer?.addEventListener("click", (e) => {
 // ============================================================
 // FOCUS TRAP — keep Tab inside modal while open
 // ============================================================
+// NOTE: The `inert` attribute on the closed modal already prevents
+// any tab leakage when the modal is hidden, so this trap only needs
+// to handle the open state — wrapping Tab at the boundary edges.
 modalLayer?.addEventListener("keydown", (e) => {
   if (e.key !== "Tab") return;
 
-  const focusable = [...modalLayer.querySelectorAll('button, a[href], [tabindex="0"]')].filter(
-    (el) => !el.disabled,
-  );
+  const focusable = [
+    ...modalLayer.querySelectorAll('button, a[href], [tabindex="0"]'),
+  ].filter((el) => !el.disabled);
 
   if (!focusable.length) return;
 
   const first = focusable[0];
-  const last = focusable[focusable.length - 1];
+  const last  = focusable[focusable.length - 1];
 
   if (e.shiftKey) {
+    // Shift+Tab on first element → wrap to last
     if (document.activeElement === first) {
       e.preventDefault();
       last.focus();
     }
   } else {
+    // Tab on last element → wrap to first
     if (document.activeElement === last) {
       e.preventDefault();
       first.focus();
@@ -283,8 +307,8 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 if (!prefersReducedMotion && puzzleGrid) {
   puzzleGrid.addEventListener("mousemove", (e) => {
     const rect = puzzleGrid.getBoundingClientRect();
-    const cx = (e.clientX - rect.left) / rect.width - 0.5;
-    const cy = (e.clientY - rect.top) / rect.height - 0.5;
+    const cx = (e.clientX - rect.left) / rect.width  - 0.5;
+    const cy = (e.clientY - rect.top)  / rect.height - 0.5;
 
     labelItems.forEach((item) => {
       const depth = item.classList.contains("is-hovered") ? 5 : 2;
