@@ -6,13 +6,32 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,scss,html,md}\"",
-    "prettier:write": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html,md}\""
+    "prettier:write": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html,md}\"",
+    "min:css": "postcss css/topaz-main.css -o css/topaz-main.min.css",
+    "min:js": "terser js/topaz-main.js -c -m -o js/topaz-main.min.js && terser js/privacy-policy.js -c -m -o js/privacy-policy.min.js && terser js/puzzle.js -c -m -o js/puzzle.min.js",
+    "build": "npm run min:css && npm run min:js",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "prettier": "^3.8.1"
-  }
+    "cssnano": "^7.1.4",
+    "husky": "^9.1.7",
+    "postcss-cli": "^11.0.1",
+    "prettier": "^3.8.1",
+    "terser": "^5.46.1"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottdwebb/tas-refactor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scottdwebb/tas-refactor/issues"
+  },
+  "homepage": "https://github.com/scottdwebb/tas-refactor#readme"
 }
