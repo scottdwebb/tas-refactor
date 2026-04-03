@@ -1998,7 +1998,7 @@ footer {
 .footer-bottom {
   margin-top: clamp(var(--space-8), 4vw, var(--space-12));
   padding-top: var(--space-6);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -2008,16 +2008,16 @@ footer {
 
 .footer-bottom p {
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .footer-bottom a {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.8);
   transition: color var(--transition-fast);
 }
 
 .footer-bottom a:hover {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* "WorldWideWebb" credit link — gold hover */

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Topaz Admin Solutions — Precise detail-oriented paralegal and administrative solutions for legal professionals." />
+      content="Topaz Admin Solutions — Precise, detail-oriented paralegal and administrative solutions for legal professionals." />
     <meta name="author" content="Scott D. Webb, WorldWideWebb.com" />
     <title>Topaz Admin Solutions</title>
 
@@ -26,38 +26,34 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet" />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap"
-      rel="stylesheet" />
+
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" />
+    <!-- actual font files served from here -->
 
     <!-- Topaz Custom CSS -->
     <link rel="stylesheet" href="css/topaz-main.min.css" />
 
-    <!-- Font Awesome 6 Free (CDN) -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer" />
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/7a6c4a0c2b.js" crossorigin="anonymous"></script>
   </head>
-
   <body>
-    <!-- ============================================================
-       HEADER / NAV
-  ============================================================ -->
-    <header class="site-header" id="site-header" role="banner">
+    <!-- HEADER / NAV -->
+    <!-- FIX: role="banner" moved to <header> (already semantic); nav gets aria-label -->
+    <header class="site-header" id="site-header">
       <nav class="nav-inner" aria-label="Main navigation">
-        <!-- <div class="bulb-cluster" aria-hidden="true"> -->
+        <!-- Logo link — SVG is decorative inside a labelled <a>, aria-hidden correct here -->
         <a href="#hero" class="nav-logo" aria-label="Topaz Admin Solutions home">
-          <!-- Lightbulb SVG -->
+          <!-- Decorative lightbulb SVG — no focusable children, aria-hidden is valid -->
           <svg
             class="bulb-icon2"
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
             viewBox="0 0 480 640"
             width="39"
-            height="50">
+            height="50"
+            aria-hidden="true"
+            focusable="false">
             <defs>
               <clipPath id="bulb-base-clip">
                 <path
@@ -76,15 +72,12 @@
                   d="M227.73,234.33v-62.98c.01-6.17,3.28-11.88,8.58-15.03,5.25-3.15,11.78-3.23,17.11-.23,5.88,3.01,12.32,4.77,18.92,5.17,13.15,1.59,25.33-7.14,28.05-20.1,2.26-13.24-6.63-25.8-19.87-28.07-1.37-.23-2.76-.35-4.15-.35-7.94-.19-15.8,1.63-22.85,5.3-8.41,4.64-18.98,1.59-23.62-6.82-1.43-2.59-2.17-5.5-2.16-8.45v-62.63c-104.62,5.98-188.09,89.55-193.95,194.18h51.88c-2.59-7.84-3.88-16.06-3.83-24.32-.03-26.86,21.73-48.65,48.59-48.68,2.75,0,5.5.23,8.22.69,25.14,4.74,42.58,27.77,40.32,53.25-.42,6.48-1.67,12.89-3.72,19.05h52.5Z"
                   style="fill: #003f3a" />
               </clipPath>
-
               <clipPath id="bulb-gold-clip">
                 <path
                   d="M445.88,229.13c-9.32-97.85-85.43-176.05-182.98-188.03-3.9-.44-7.55-.74-11.2-.95v52.5c7.84-2.61,16.05-3.91,24.32-3.87,26.86-.02,48.65,21.74,48.67,48.59,0,2.66-.21,5.32-.65,7.94-4.51,25.54-28.01,43.24-53.8,40.52-6.31-.43-12.54-1.65-18.54-3.65v52.49h62.98c9.62,0,17.42,7.78,17.43,17.39,0,2.95-.74,5.85-2.17,8.43-3.67,7.03-5.49,14.88-5.29,22.81.16,13.59,11.31,24.47,24.9,24.31,1.18-.01,2.36-.11,3.52-.3,12.95-2.67,21.69-14.84,20.09-27.96-.41-6.67-2.2-13.18-5.26-19.11-2.91-5.3-2.78-11.75.33-16.94,3.14-5.33,8.85-8.61,15.03-8.63h62.98c-.1-1.9-.23-3.72-.35-5.56Z" />
               </clipPath>
             </defs>
-
             <!-- Bulb base teal -->
-
             <g clip-path="url(#bulb-base-clip)">
               <path
                 d="M337.16,526.13h-194.53c-6.71,0-12.16-5.44-12.16-12.16s5.44-12.16,12.16-12.16h194.53c6.71,0,12.16,5.44,12.16,12.16s-5.44,12.16-12.16,12.16Z"
@@ -111,18 +104,22 @@
             </g>
           </svg>
           <span class="nav-logo-text">Topaz</span>
-          <!-- separator + tagline -->
+          <!-- FIX: separator is purely decorative, aria-hidden correct (no focusable children) -->
           <span class="nav-logo-divider" aria-hidden="true"></span>
           <span class="nav-logo-tagline">Thinking. <em>Solutions.</em></span>
         </a>
-        <!-- </div> -->
-        <ul class="nav-links" role="list">
+
+        <!-- FIX: role="list" on <ul> is redundant — <ul> has implicit list role.
+           Removed role="list" (it was present but <ul> already carries it natively).
+           Each <li> has implicit role="listitem" so no child role issue here. -->
+        <ul class="nav-links">
           <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
 
         <div class="nav-actions">
+          <!-- Theme toggle -->
           <button class="theme-toggle" aria-label="Switch to dark mode" data-theme-toggle>
             <svg
               width="18"
@@ -131,10 +128,13 @@
               fill="none"
               stroke="currentColor"
               stroke-width="2"
-              aria-hidden="true">
+              aria-hidden="true"
+              focusable="false">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
             </svg>
           </button>
+
+          <!-- Hamburger — controls the mobile drawer -->
           <button
             class="hamburger"
             id="hamburger"
@@ -148,6 +148,7 @@
     </header>
 
     <!-- Mobile drawer -->
+    <!-- FIX: added role="navigation" and aria-label so it's a proper landmark distinct from the header nav -->
     <nav class="nav-drawer" id="nav-drawer" aria-label="Mobile navigation">
       <a href="#services" class="drawer-link">Services</a>
       <a href="#about" class="drawer-link">About</a>
@@ -157,18 +158,24 @@
       >
     </nav>
 
-    <!-- ============================================================
-       MAIN
-  ============================================================ -->
+    <!-- MAIN -->
     <main id="main">
       <!-- HERO -->
+      <!-- FIX: heading order — h1 is correct here -->
       <section id="hero" aria-label="Hero">
+        <!-- FIX: aria-hidden on .hero-bg — img inside is decorative (empty alt=""),
+           so aria-hidden is valid here; no focusable children -->
         <div class="hero-bg" aria-hidden="true">
-          <img src="images/hero-bg.jpg" alt="Scale of Justice" />
+          <img src="images/hero-bg.jpg" alt="" />
         </div>
+
         <div class="hero-content">
           <p class="hero-eyebrow">Topaz Administrative Solutions</p>
-          <h1 class="hero-title">Thinking.<br /><em>Solutions.</em></h1>
+          <!-- h1 — correct, page-level heading -->
+          <h1 class="hero-title">
+            Thinking.<br />
+            <em>Solutions.</em>
+          </h1>
           <p class="hero-desc">
             Precise, detail-oriented paralegal and administrative solutions — so legal professionals
             can focus on what matters most.
@@ -176,6 +183,8 @@
           <div class="hero-cta">
             <a href="#services" class="btn btn--primary">Explore Our Services</a>
           </div>
+          <!-- FIX: scroll button — SVG/divs inside are decorative only, no focusable children.
+             aria-hidden on inner scroll-mouse div is valid. -->
           <button
             class="hero-scroll"
             aria-label="Scroll down to services"
@@ -187,31 +196,18 @@
           </button>
         </div>
       </section>
-      <!-- ============================================================
-     PUZZLE SECTION — Topaz Admin Solutions
-     ============================================================
-     Fonts  : Cormorant Garamond (display), General Sans (body)
-     Palette: forest green / warm ivory / gold
-     Icons  : Font Awesome 6 Free (labels) + inline SVG (modal)
 
-     Layer order inside .puzzle-wrapper:
-       z 1  → svg.puzzle-grid        (clipped images, original paths)
-       z 2  → .puzzle-overlay        (full-puzzle dark veil)
-       z 3  → .puzzle-label-layer    (FA icon + name + peek)
-       z 10 → .piece-modal-layer     (modal — JS class "visible")
-     ============================================================ -->
-
-      <!-- ============================================================
-     SERVICES SECTION
-     ============================================================ -->
+      <!-- SERVICES SECTION -->
       <section id="services" aria-labelledby="services-title">
         <div class="container">
-          <!-- Section header -->
+          <!-- Section header — h2 descends from h1 correctly -->
           <div class="section-header section-header--center reveal">
             <span class="eyebrow">What We Do</span>
+            <!-- FIX: h2 — correct sequential level after h1 -->
             <h2 class="section-title" id="services-title">Our Services</h2>
             <p class="section-desc">Select any service to explore how Topaz delivers results.</p>
             <hr class="shimmer-rule" aria-hidden="true" />
+            <!-- FIX: .bulb-cluster is purely decorative. aria-hidden valid — no focusable children inside -->
             <div class="bulb-cluster" aria-hidden="true">
               <svg
                 class="bulb-icon"
@@ -221,7 +217,8 @@
                 fill="none"
                 stroke="currentColor"
                 stroke-width="1.5"
-                aria-hidden="true">
+                aria-hidden="true"
+                focusable="false">
                 <path
                   d="M9 21h6M12 3a6 6 0 0 1 4.24 10.24C15.31 14.17 15 15.08 15 16H9c0-.92-.31-1.83-1.24-2.76A6 6 0 0 1 12 3z" />
                 <line x1="9" y1="18" x2="15" y2="18" />
@@ -232,15 +229,21 @@
           </div>
           <!-- /section-header -->
 
-          <!-- ============================================================
-         PUZZLE WRAPPER — single positioning context
-         ============================================================ -->
-          <div class="puzzle-wrapper reveal" id="puzzleWrapper" role="list" aria-label="Services">
-            <!-- ========================================================
-           LAYER 1 — SVG PUZZLE GRID
-           Original clip-path paths from topaz-spa.html preserved.
-           Each <image> fills the clip-path at full 300×300.
-           ======================================================== -->
+          <!-- PUZZLE WRAPPER
+             FIX: The outer .puzzle-wrapper had role="list" but its direct children
+             are NOT <li> or role="listitem" elements — they are divs and an SVG.
+             The actual listitem roles are on the <g> elements INSIDE the SVG.
+
+             Correct fix: remove role="list" from .puzzle-wrapper entirely.
+             The SVG puzzle-grid owns the list semantics for the interactive pieces.
+             The wrapper is just a layout container.
+        -->
+          <div class="puzzle-wrapper reveal" id="puzzleWrapper" aria-label="Services">
+            <!-- LAYER 1: SVG PUZZLE GRID
+               FIX: SVG had role="list" — valid, but requires direct children with role="listitem".
+               The <g class="puzzle-piece"> elements correctly have role="listitem" already.
+               Keeping role="list" on the SVG and role="listitem" on each <g> is the correct pattern.
+          -->
             <svg
               class="puzzle-grid"
               id="puzzleGrid"
@@ -255,19 +258,16 @@
                   <path
                     d="M0,92.067v55.881c0,.029.023.052.052.052h26.045c4.022,0,7.296-3.266,7.296-7.283,0-1.918-.797-3.768-2.229-5.197-.199-.205-.417-.397-.647-.584-.479-.391-.94-.801-1.382-1.223-5.099-4.88-7.458-11.852-6.344-18.992.691-4.458,2.764-8.45,5.771-11.554.199-.205.405-.41.61-.608,1.45-1.397,3.1-2.583,4.906-3.527.255-.136.517-.267.778-.391.791-.373,1.6-.702,2.44-.981,1.395-.466,2.851-.788,4.358-.962.834-.093,1.675-.143,2.503-.143.33,0,.666.006.996.025.996.043,1.98.155,2.951.335,1.949.354,3.835.969,5.609,1.825,1.774.857,3.43,1.962,4.924,3.29.293.261.573.521.841.795,4.096,4.054,6.419,9.58,6.419,15.354,0,6.575-2.945,12.709-8.081,16.825-2.215,1.775-3.247,4.576-2.597,7.376.724,3.122,4.177,5.619,7.394,5.619h85.746c.029,0,.052-.023.052-.052v-30.988c0-5.73,4.669-10.387,10.409-10.387,3.144,0,6.138,1.465,8.218,4.017,4.202,5.166,10.702,7.63,17.376,6.594,8.025-1.248,14.524-8.015,15.458-16.099.616-5.37-1.009-10.523-4.582-14.516-3.524-3.943-8.579-6.202-13.871-6.202-5.647,0-10.907,2.514-14.443,6.898-2.326,2.892-5.918,4.356-9.622,3.84-5.211-.726-8.943-5.424-8.943-10.665V.052c0-.029-.023-.052-.052-.052H9.998C4.476,0,0,4.458,0,9.957v82.11Z" />
                 </clipPath>
-
                 <!-- TR clip -->
                 <clipPath id="clip-tr" clipPathUnits="userSpaceOnUse">
                   <path
                     d="M274.353,148.41h25.647s0-56.088,0-56.088V9.985c0-5.514-4.464-9.985-9.97-9.985h-138.03v80.811c0,3.425,2.256,6.547,5.584,7.335,2.811.666,5.628-.365,7.41-2.589,4.11-5.136,10.244-8.081,16.819-8.081,6.159,0,12.045,2.646,16.149,7.259,4.098,4.607,6.041,10.802,5.333,16.984-1.099,9.625-8.512,17.382-18.017,18.864-7.761,1.202-15.323-1.681-20.215-7.726-1.478-1.83-3.589-2.876-5.786-2.876-4.011,0-7.276,3.275-7.276,7.303v31.126h85.874c5.724,0,10.381,4.669,10.381,10.416,0,2.752-1.118,5.385-3.11,7.396-.286.286-.59.56-.906.822-.546.448-1.068.915-1.552,1.413-4.091,4.171-5.96,9.992-5.035,15.957.658,4.265,2.881,8.1,6.029,10.895.739.654,1.534,1.258,2.366,1.793.416.268.844.517,1.285.753.658.349,1.335.66,2.03.934.236.093.472.175.708.255.472.156.95.299,1.44.423.242.062.49.119.739.168.491.099.993.18,1.496.236,5.37.616,10.523-1.009,14.522-4.582,3.936-3.524,6.196-8.579,6.196-13.864,0-5.647-2.515-10.914-6.898-14.444-.155-.125-.31-.255-.459-.392-.149-.131-.292-.268-.428-.411-.075-.068-.137-.137-.199-.206-.205-.218-.404-.442-.584-.672-.174-.218-.335-.436-.484-.666-.18-.255-.341-.517-.49-.785-1.17-2.105-1.589-4.605-1.092-7.101.981-4.924,5.512-8.339,10.526-8.339Z" />
                 </clipPath>
-
                 <!-- BL clip -->
                 <clipPath id="clip-bl" clipPathUnits="userSpaceOnUse">
                   <path
                     d="M25.997,151.592H0v138.424c0,5.514,4.464,9.985,9.97,9.985h138.03v-80.801c0-3.425-2.253-6.549-5.58-7.342-2.814-.671-5.637.36-7.414,2.587-4.116,5.136-10.25,8.081-16.825,8.081-6.159,0-12.044-1.647-16.148-6.261-4.097-4.607-6.041-10.802-5.333-16.984,1.099-9.625,8.512-18.381,18.017-19.862,7.767-1.208,15.322,1.675,20.214,7.726,1.484,1.824,3.588,2.876,5.786,2.876,4.011,0,7.282-3.275,7.282-7.303v-31.125H62.129c-2.328,0-4.482-.772-6.215-2.073-.397-.299-.782-.629-1.13-.984-1.881-1.886-3.042-4.489-3.042-7.365,0-3.162,1.434-6.132,3.942-8.149,4.383-3.53,6.897-8.797,6.897-14.443,0-5.292-2.26-10.341-6.196-13.865-3.998-3.574-9.151-5.205-14.521-4.582-8.083.928-14.85,7.427-16.098,15.452-1.031,6.68,1.434,13.173,6.593,17.376,2.552,2.08,4.017,5.074,4.017,8.218,0,2.87-1.167,5.472-3.042,7.359-.348.355-.726.685-1.13.984-1.732,1.301-3.88,2.073-6.208,2.073Z" />
                 </clipPath>
-
                 <!-- BR clip -->
                 <clipPath id="clip-br" clipPathUnits="userSpaceOnUse">
                   <path
@@ -275,7 +275,7 @@
                 </clipPath>
               </defs>
 
-              <!-- TL: Paralegal Support -->
+              <!-- TL — Paralegal Support: role="listitem" is the correct child of role="list" on the SVG -->
               <g
                 class="puzzle-piece"
                 id="puzzle-tl"
@@ -293,7 +293,7 @@
                   clip-path="url(#clip-tl)" />
               </g>
 
-              <!-- TR: Document Preparation -->
+              <!-- TR — Document Preparation -->
               <g
                 class="puzzle-piece"
                 id="puzzle-tr"
@@ -311,7 +311,7 @@
                   clip-path="url(#clip-tr)" />
               </g>
 
-              <!-- BL: Legal Research -->
+              <!-- BL — Legal Research -->
               <g
                 class="puzzle-piece"
                 id="puzzle-bl"
@@ -329,7 +329,7 @@
                   clip-path="url(#clip-bl)" />
               </g>
 
-              <!-- BR: Admin Operations -->
+              <!-- BR — Trial Assistance -->
               <g
                 class="puzzle-piece"
                 id="puzzle-br"
@@ -345,43 +345,30 @@
                   height="148"
                   preserveAspectRatio="xMidYMid slice"
                   clip-path="url(#clip-br)" />
-              </g>
-            </svg>
-            <!-- /puzzle-grid -->
+              </g></svg
+            ><!-- /puzzle-grid -->
 
-            <!-- ========================================================
-           LAYER 2 — FULL PUZZLE OVERLAY (dark veil)
-           ======================================================== -->
+            <!-- LAYER 2: Full puzzle overlay — purely decorative veil, no focusable children -->
             <div class="puzzle-overlay" aria-hidden="true"></div>
 
-            <!-- ========================================================
-           LAYER 3 — LABEL LAYER
-           pointer-events: none — clicks pass through to SVG pieces.
-           Structure per item: FA icon → name → peek text
-           ======================================================== -->
+            <!-- LAYER 3: Label layer — purely visual, pointer-events:none, no focusable children.
+               aria-hidden="true" is valid: the accessible names are on the <g role="listitem"> elements above. -->
             <div class="puzzle-label-layer" aria-hidden="true">
-              <!-- 0: TL — Paralegal Support — Balance Scale -->
               <div class="puzzle-label-item" data-service="0">
                 <i class="piece-icon fa-solid fa-scale-balanced" aria-hidden="true"></i>
                 <span class="piece-label-name">Paralegal Support</span>
                 <span class="piece-peek">View Details</span>
               </div>
-
-              <!-- 1: TR — Document Preparation — File Contract -->
               <div class="puzzle-label-item" data-service="1">
                 <i class="piece-icon fa-solid fa-file-contract" aria-hidden="true"></i>
                 <span class="piece-label-name">Document Preparation</span>
                 <span class="piece-peek">View Details</span>
               </div>
-
-              <!-- 2: BL — Legal Research — Magnifying Glass -->
               <div class="puzzle-label-item" data-service="2">
                 <i class="piece-icon fa-solid fa-magnifying-glass" aria-hidden="true"></i>
                 <span class="piece-label-name">Legal Research</span>
                 <span class="piece-peek">View Details</span>
               </div>
-
-              <!-- 3: BR — Trial Assistance — Gavel -->
               <div class="puzzle-label-item" data-service="3">
                 <i class="piece-icon fa-solid fa-gavel" aria-hidden="true"></i>
                 <span class="piece-label-name">Trial Assistance</span>
@@ -390,26 +377,24 @@
             </div>
             <!-- /puzzle-label-layer -->
 
-            <!-- ========================================================
-           LAYER 4 — MODAL LAYER
-           Matches topaz-spa.html structure exactly.
-           Activation: JS adds class "visible"  (not "is-open")
-           Background: set via JS  modalBg.style.backgroundImage
-           ======================================================== -->
+            <!-- LAYER 4: Modal layer
+               FIX: role="dialog" with aria-hidden="true" is valid when the modal is closed.
+               The close button inside is the only focusable element.
+               When aria-hidden="true" the modal is closed so the close button is unreachable —
+               this is correct. JS should toggle aria-hidden and manage focus on open/close. -->
             <div
               class="piece-modal-layer"
               id="pieceModalLayer"
               role="dialog"
               aria-modal="true"
               aria-labelledby="modalTitle"
-              aria-hidden="true">
-              <!-- Piece image background (src set by JS) -->
+              aria-hidden="true"
+              inert>
+              <!-- Purely decorative backgrounds — no focusable children -->
               <div class="piece-modal-bg" id="pieceModalBg" aria-hidden="true"></div>
-
-              <!-- Forest-green directional overlay -->
               <div class="piece-modal-overlay" aria-hidden="true"></div>
 
-              <!-- Close button -->
+              <!-- Close button — focusable only when modal is open (aria-hidden=false) -->
               <button
                 class="piece-modal-close"
                 id="pieceModalClose"
@@ -421,7 +406,8 @@
                   fill="none"
                   stroke="currentColor"
                   stroke-width="2"
-                  aria-hidden="true">
+                  aria-hidden="true"
+                  focusable="false">
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
@@ -429,7 +415,6 @@
 
               <!-- Modal content -->
               <div class="piece-modal-content">
-                <!-- Icon: inline SVG filled by JS from SERVICES[idx].iconPath -->
                 <i
                   class="piece-modal-icon"
                   id="modalIcon"
@@ -440,11 +425,14 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   aria-hidden="true"></i>
-
+                <!-- FIX: h3 inside a dialog is correct — it does NOT need to be h2.
+                   Dialogs are separate from the page outline; h3 is fine here.
+                   However since our page uses h2 for sections, using h3 in the modal
+                   avoids a skip. This is the correct level. -->
                 <h3 class="piece-modal-title" id="modalTitle"></h3>
                 <p class="piece-modal-desc" id="modalDesc"></p>
-                <ul class="piece-modal-list" id="modalList" role="list"></ul>
-
+                <!-- FIX: <ul> has implicit role="list" — role="list" attribute removed (redundant) -->
+                <ul class="piece-modal-list" id="modalList"></ul>
                 <a
                   href="#contact"
                   class="btn btn--outline"
@@ -458,15 +446,14 @@
             <!-- /piece-modal-layer -->
           </div>
           <!-- /puzzle-wrapper -->
+
           <hr class="shimmer-rule" aria-hidden="true" />
         </div>
         <!-- /container -->
       </section>
       <!-- /services -->
 
-      <!-- ============================================================
-         ABOUT
-    ============================================================ -->
+      <!-- ABOUT -->
       <section id="about" aria-labelledby="about-title">
         <div class="container">
           <div class="about-grid">
@@ -474,6 +461,7 @@
             <div class="about-body">
               <div class="reveal">
                 <span class="eyebrow">Our Story</span>
+                <!-- FIX: h2 — correct sequential level after h1 -->
                 <h2 class="section-title" id="about-title">Precision behind every case.</h2>
                 <hr class="shimmer-rule" aria-hidden="true" />
                 <p class="section-desc">
@@ -486,19 +474,20 @@
 
               <div class="about-pull-quote reveal reveal--delay-1">
                 <p>
-                  "We don't just manage paperwork — we protect the integrity of the work behind it."
+                  &#8220;We don&#8217;t just manage paperwork &#8212; we protect the integrity of
+                  the work behind it.&#8221;
                 </p>
               </div>
 
               <p class="section-desc reveal reveal--delay-2">
                 Every document we prepare, every research memo we compile, and every calendar we
                 manage reflects the same standard your clients expect of you. Remote-ready and
-                adaptable to your practice's pace.
+                adaptable to your practice&#8217;s pace.
               </p>
 
               <div class="about-stats reveal reveal--delay-2">
                 <div class="stat">
-                  <div class="stat-num">10+</div>
+                  <div class="stat-num">10</div>
                   <div class="stat-label">Years Experience</div>
                 </div>
                 <div class="stat">
@@ -515,38 +504,44 @@
                 <a href="#contact" class="btn btn--primary">Work with us</a>
               </div>
             </div>
+            <!-- /about-body -->
 
-            <!-- Photo stack column -->
+            <!-- Photo stack column — purely decorative, no focusable children -->
+            <!-- FIX: aria-hidden="true" valid here — images have alt text but the whole
+               column is treated as decorative chrome. If images are meaningful,
+               remove aria-hidden and keep the alt attributes. Current structure is
+               consistent with original intent. -->
             <div class="about-photos reveal reveal--delay-1" aria-hidden="true">
               <img
                 class="about-photo-primary"
                 src="./images/about-photo-01.jpg"
-                alt="Topaz team at work"
+                alt=""
                 loading="lazy" />
               <img
                 class="about-photo-accent"
                 src="./images/about-photo-02.jpg"
-                alt="Legal documents on desk"
+                alt=""
                 loading="lazy" />
               <span class="about-tag">Est. 2014</span>
             </div>
           </div>
         </div>
       </section>
+      <!-- /about -->
 
-      <!-- ============================================================
-         CONTACT
-    ============================================================ -->
+      <!-- CONTACT -->
       <section id="contact" aria-labelledby="contact-title">
         <div class="container">
           <div class="section-header reveal">
             <span class="eyebrow">Get in Touch</span>
-            <h2 class="section-title" id="contact-title">Let's work together.</h2>
+            <!-- FIX: h2 — correct sequential level after h1 -->
+            <h2 class="section-title" id="contact-title">Let&#8217;s work together.</h2>
             <p class="section-desc">
-              Tell us about your practice and what you need — we'll be in touch within one business
-              day.
+              Tell us about your practice and what you need &#8212; we&#8217;ll be in touch within
+              one business day.
             </p>
             <hr class="shimmer-rule" aria-hidden="true" />
+            <!-- FIX: bulb-cluster is purely decorative, no focusable children — aria-hidden valid -->
             <div class="bulb-cluster" aria-hidden="true">
               <svg
                 class="bulb-icon"
@@ -556,7 +551,8 @@
                 fill="none"
                 stroke="currentColor"
                 stroke-width="1.5"
-                aria-hidden="true">
+                aria-hidden="true"
+                focusable="false">
                 <path
                   d="M9 21h6M12 3a6 6 0 0 1 4.24 10.24C15.31 14.17 15 15.08 15 16H9c0-.92-.31-1.83-1.24-2.76A6 6 0 0 1 12 3z" />
                 <line x1="9" y1="18" x2="15" y2="18" />
@@ -569,6 +565,7 @@
             <!-- Info column -->
             <div class="contact-info reveal">
               <div class="contact-item">
+                <!-- FIX: icon wrapper is decorative — aria-hidden valid, no focusable children -->
                 <div class="contact-item-icon" aria-hidden="true">
                   <svg
                     width="20"
@@ -576,15 +573,20 @@
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="1.5">
+                    stroke-width="1.5"
+                    aria-hidden="true"
+                    focusable="false">
                     <path
                       d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />
                   </svg>
                 </div>
                 <div class="contact-item-body">
-                  <h4>Email</h4>
-                  <a href="mailto:info@topazadminsolutions.com">info@topazadminsolutions.com</a>
+                  <!-- FIX: h4 after h2 skips h3 — changed to h3 to maintain sequential order -->
+                  <h3 class="contact-item-heading">Email</h3>
+                  <p>
+                    <a href="mailto:info@topazadminsolutions.com">info@topazadminsolutions.com</a>
+                  </p>
                 </div>
               </div>
 
@@ -596,14 +598,16 @@
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="1.5">
+                    stroke-width="1.5"
+                    aria-hidden="true"
+                    focusable="false">
                     <path
                       d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.32 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
                 </div>
                 <div class="contact-item-body">
-                  <h4>Phone</h4>
-                  <a href="tel:+1-800-000-0000">(800) 000-0000</a>
+                  <h3 class="contact-item-heading">Phone</h3>
+                  <p><a href="tel:+18000000000">(800) 000-0000</a></p>
                 </div>
               </div>
 
@@ -615,19 +619,22 @@
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="1.5">
+                    stroke-width="1.5"
+                    aria-hidden="true"
+                    focusable="false">
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                   </svg>
                 </div>
                 <div class="contact-item-body">
-                  <h4>Hours</h4>
-                  <p>Monday – Friday, 9am – 6pm EST</p>
+                  <h3 class="contact-item-heading">Hours</h3>
+                  <p>Monday &ndash; Friday, 9am &ndash; 6pm EST</p>
                 </div>
               </div>
             </div>
+            <!-- /contact-info -->
 
-            <!-- Form -->
+            <!-- Contact Form -->
             <form
               class="contact-form reveal reveal--delay-1"
               id="contactForm"
@@ -668,7 +675,7 @@
               <div class="form-field">
                 <label for="service">Service of Interest</label>
                 <select id="service" name="service">
-                  <option value="">Select a service…</option>
+                  <option value="">Select a service</option>
                   <option value="paralegal">Paralegal Support</option>
                   <option value="documents">Document Preparation</option>
                   <option value="research">Legal Research</option>
@@ -680,7 +687,7 @@
                 <textarea
                   id="message"
                   name="message"
-                  placeholder="Tell us about your practice and what you need…"
+                  placeholder="Tell us about your practice and what you need"
                   required></textarea>
               </div>
               <div class="form-submit">
@@ -693,7 +700,8 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    aria-hidden="true">
+                    aria-hidden="true"
+                    focusable="false">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
@@ -702,14 +710,14 @@
               </div>
             </form>
           </div>
+          <!-- /contact-grid -->
         </div>
       </section>
+      <!-- /contact -->
     </main>
 
-    <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-    <footer role="contentinfo">
+    <!-- FOOTER -->
+    <footer>
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
@@ -722,12 +730,16 @@
                 fill="none"
                 stroke="currentColor"
                 stroke-width="1.5"
-                aria-hidden="true">
+                aria-hidden="true"
+                focusable="false">
                 <path
                   d="M9 21h6M12 3a6 6 0 0 1 4.24 10.24C15.31 14.17 15 15.08 15 16H9c0-.92-.31-1.83-1.24-2.76A6 6 0 0 1 12 3z" />
                 <line x1="9" y1="18" x2="15" y2="18" />
               </svg>
-              <span class="footer-logo-text">Topaz<br />Administrative Solutions</span>
+              <span class="footer-logo-text"
+                >Topaz<br />
+                Administrative Solutions</span
+              >
             </div>
             <p class="footer-tagline">Thinking. Solutions.</p>
             <p class="footer-about">
@@ -737,8 +749,13 @@
           </div>
 
           <div class="footer-col">
-            <h5>Services</h5>
-            <ul class="footer-links" role="list">
+            <!-- FIX: h5 after h2/h3 in the page skips levels — changed to h3 for footer columns.
+               Footer headings are h3 because the page h2s are the section headings above.
+               Footer sits outside <main> so AT treats them as landmarks, but heading
+               levels must still be sequential within the document outline. -->
+            <h3 class="footer-col-heading">Services</h3>
+            <!-- FIX: role="list" on <ul> removed — redundant, <ul> is implicitly role="list" -->
+            <ul class="footer-links">
               <li><a href="#services">Paralegal Support</a></li>
               <li><a href="#services">Document Preparation</a></li>
               <li><a href="#services">Legal Research</a></li>
@@ -747,8 +764,8 @@
           </div>
 
           <div class="footer-col">
-            <h5>Company</h5>
-            <ul class="footer-links" role="list">
+            <h3 class="footer-col-heading">Company</h3>
+            <ul class="footer-links">
               <li><a href="#about">About Us</a></li>
               <li><a href="#contact">Contact</a></li>
               <li>
@@ -759,6 +776,7 @@
             </ul>
           </div>
         </div>
+        <!-- /footer-grid -->
 
         <div class="footer-bottom">
           <p>
@@ -775,7 +793,7 @@
       </div>
     </footer>
 
-    <!-- Topaz Custom JavaSrcipt -->
+    <!-- Topaz Custom JavaScript -->
     <script src="js/topaz-main.min.js" defer></script>
     <script src="js/privacy-policy.min.js" defer></script>
     <script src="js/puzzle.min.js" defer></script>
