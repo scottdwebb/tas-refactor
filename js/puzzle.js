@@ -37,7 +37,7 @@ const SERVICES = [
     // Balance / scale bars icon
     iconPath: `<path d="M3 17l4-8 4 4 4-6 4 10"/>
                <line x1="3" y1="21" x2="21" y2="21"/>`,
-    bg: "images/puzzle-piece--1__modal.webp",
+    bg: "images/puzzle-piece--1__modal.png",
   },
   {
     // 1 — TR: Document Preparation
@@ -55,7 +55,7 @@ const SERVICES = [
                <polyline points="14 2 14 8 20 8"/>
                <line x1="16" y1="13" x2="8" y2="13"/>
                <line x1="16" y1="17" x2="8" y2="17"/>`,
-    bg: "images/puzzle-piece--2__modal.webp",
+    bg: "images/puzzle-piece--2__modal.png",
   },
   {
     // 2 — BL: Legal Research
@@ -71,7 +71,7 @@ const SERVICES = [
     // Magnifying glass icon
     iconPath: `<circle cx="11" cy="11" r="8"/>
                <line x1="21" y1="21" x2="16.65" y2="16.65"/>`,
-    bg: "images/puzzle-piece--3__modal.webp",
+    bg: "images/puzzle-piece--3__modal.png",
   },
   {
     // 3 — BR: Trial Assistance
@@ -88,7 +88,7 @@ const SERVICES = [
     iconPath: `<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
                <line x1="8" y1="21" x2="16" y2="21"/>
                <line x1="12" y1="17" x2="12" y2="21"/>`,
-    bg: "images/puzzle-piece--4__modal.webp",
+    bg: "images/puzzle-piece--4__modal.png",
   },
 ];
 
@@ -96,16 +96,16 @@ const SERVICES = [
 // DOM REFERENCES
 // ============================================================
 const puzzleWrapper = document.getElementById("puzzleWrapper");
-const puzzleGrid    = document.getElementById("puzzleGrid");
-const modalLayer    = document.getElementById("pieceModalLayer");
-const modalClose    = document.getElementById("pieceModalClose");
-const modalBg       = document.getElementById("pieceModalBg");
-const modalIcon     = document.getElementById("modalIcon");
-const modalTitle    = document.getElementById("modalTitle");
-const modalDesc     = document.getElementById("modalDesc");
-const modalList     = document.getElementById("modalList");
+const puzzleGrid = document.getElementById("puzzleGrid");
+const modalLayer = document.getElementById("pieceModalLayer");
+const modalClose = document.getElementById("pieceModalClose");
+const modalBg = document.getElementById("pieceModalBg");
+const modalIcon = document.getElementById("modalIcon");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const modalList = document.getElementById("modalList");
 
-const pieces     = puzzleGrid    ? [...puzzleGrid.querySelectorAll(".puzzle-piece")]     : [];
+const pieces = puzzleGrid ? [...puzzleGrid.querySelectorAll(".puzzle-piece")] : [];
 const labelItems = puzzleWrapper ? [...puzzleWrapper.querySelectorAll(".puzzle-label-item")] : [];
 
 /** Index of the currently active piece (for focus restore on close) */
@@ -166,7 +166,7 @@ const openModal = (idx) => {
   }
 
   if (modalTitle) modalTitle.textContent = svc.name;
-  if (modalDesc)  modalDesc.textContent  = svc.desc;
+  if (modalDesc) modalDesc.textContent = svc.desc;
 
   if (modalList) {
     modalList.innerHTML = svc.list.map((item) => `<li>${item}</li>`).join("");
@@ -231,8 +231,8 @@ pieces.forEach((piece) => {
   piece.addEventListener("mouseleave", () => clearHover());
 
   // Keyboard focus → same as hover
-  piece.addEventListener("focus",  () => setHover(idx));
-  piece.addEventListener("blur",   () => clearHover());
+  piece.addEventListener("focus", () => setHover(idx));
+  piece.addEventListener("blur", () => clearHover());
 
   // Click → open modal
   piece.addEventListener("click", () => openModal(Number(idx)));
@@ -274,14 +274,14 @@ modalLayer?.addEventListener("click", (e) => {
 modalLayer?.addEventListener("keydown", (e) => {
   if (e.key !== "Tab") return;
 
-  const focusable = [
-    ...modalLayer.querySelectorAll('button, a[href], [tabindex="0"]'),
-  ].filter((el) => !el.disabled);
+  const focusable = [...modalLayer.querySelectorAll('button, a[href], [tabindex="0"]')].filter(
+    (el) => !el.disabled,
+  );
 
   if (!focusable.length) return;
 
   const first = focusable[0];
-  const last  = focusable[focusable.length - 1];
+  const last = focusable[focusable.length - 1];
 
   if (e.shiftKey) {
     // Shift+Tab on first element → wrap to last
@@ -307,8 +307,8 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 if (!prefersReducedMotion && puzzleGrid) {
   puzzleGrid.addEventListener("mousemove", (e) => {
     const rect = puzzleGrid.getBoundingClientRect();
-    const cx = (e.clientX - rect.left) / rect.width  - 0.5;
-    const cy = (e.clientY - rect.top)  / rect.height - 0.5;
+    const cx = (e.clientX - rect.left) / rect.width - 0.5;
+    const cy = (e.clientY - rect.top) / rect.height - 0.5;
 
     labelItems.forEach((item) => {
       const depth = item.classList.contains("is-hovered") ? 5 : 2;

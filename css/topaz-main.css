@@ -512,7 +512,6 @@ section {
   letter-spacing: 0.03em;
   transition:
     background var(--transition-fast),
-    color var(--transition-fast),
     box-shadow var(--transition-fast),
     transform var(--transition-fast);
   min-height: 44px; /* WCAG 2.5.5 target size */
@@ -525,12 +524,11 @@ section {
 /* Filled primary button */
 .btn--primary {
   background: var(--color-primary);
-  color: var(--color-text-inverse);
+  color: #fff !important;
 }
 
 .btn--primary:hover {
-  background: var(--color-primary-hover);
-  box-shadow: var(--shadow-md);
+  background: var(--color-primary-active);
 }
 
 /* Outlined button */
